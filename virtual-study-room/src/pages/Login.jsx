@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { loginRoute } from "../utils/APIRoutes";
 import styled from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function Login() {
@@ -71,13 +72,13 @@ export default function Login() {
           <h3 className="login-head"><i className="bi bi-person me-2"></i>SIGN IN</h3>
           <div className="mb-3">
             <label className="form-label">USERNAME</label>
-            <input className="form-control" type="text" placeholder="Email" onChange={(e) => handleChange(e)} autofocus />
+            <input className="form-control" name="username" type="text" placeholder="Email" onChange={(e) => handleChange(e)} autofocus />
           </div>
           <div className="mb-3">
             <label className="form-label">PASSWORD</label>
-            <input className="form-control" type="password" placeholder="Password" onChange={(e) => handleChange(e)} />
+            <input className="form-control" type="password" name="password" placeholder="Password" onChange={(e) => handleChange(e)} />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <div className="utility">
               <div className="form-check">
                 <label className="form-check-label">
@@ -86,16 +87,16 @@ export default function Login() {
               </div>
               <p className="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p>
             </div>
-          </div>
+          </div> */}
           <div className="mb-3 btn-container d-grid">
-            <button type='submit' className="btn btn-primary btn-block"><i className="bi bi-box-arrow-in-right me-2 fs-5"></i>SIGN IN</button>
+            <button type="submit" className="btn btn-primary btn-block"><i className="bi bi-box-arrow-in-right me-2 fs-5"></i>SIGN IN</button>
           </div>
         </form>
         <form className="forget-form" action="index.html">
           <h3 className="login-head"><i className="bi bi-person-lock me-2"></i>Forgot Password ?</h3>
           <div className="mb-3">
             <label className="form-label">EMAIL</label>
-            <input className="form-control" type="text" placeholder="Email" />
+            <input className="form-control" name="" type="text" placeholder="Email" />
           </div>
           <div className="mb-3 btn-container d-grid">
             <button className="btn btn-primary btn-block"><i className="bi bi-unlock me-2 fs-5"></i>RESET</button>
@@ -107,6 +108,7 @@ export default function Login() {
       </div>
     </section>
     </FormContainer>
+    <ToastContainer/>
     </>
   )
 }
