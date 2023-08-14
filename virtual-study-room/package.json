@@ -16,6 +16,9 @@
     "styled-components": "^6.0.7",
     "web-vitals": "^2.1.4"
   },
+  "browser": {
+    "tls": false
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

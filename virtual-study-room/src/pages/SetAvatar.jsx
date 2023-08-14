@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { setAvatarRoute } from "../utils/APIRoutes";
+import { checkServerIdentity } from "tls";
 export default function SetAvatar() {
   const api = `https://api.multiavatar.com/4645646`;
   const navigate = useNavigate();
@@ -21,9 +22,13 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
-  useEffect(async () => {
+  const checkSessionCookie = async()=>{
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
       navigate("/login");
+  }
+
+  useEffect( () => {
+    checkSessionCookie();
   }, []);
 
   const setProfilePicture = async () => {
@@ -65,7 +70,7 @@ export default function SetAvatar() {
     setIsLoading(false);
   }
 
-  useEffect(async () => {
+  useEffect( () => {
     getAvatar();
   }, []);
 
@@ -115,7 +120,7 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  background-color: #131324;
+  background-color: #00695C;
   height: 100vh;
   width: 100vw;
 
