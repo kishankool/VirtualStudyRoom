@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import YouTube from 'react-youtube'
+import Navbar from '../components/Navbar';
 export default function StudyAlone() {
     const onReady = (event) => {
         event.target.playVideo();
@@ -11,19 +12,19 @@ export default function StudyAlone() {
 
       }
     const videoOptions = {
-        playerVars: { // https://developers.google.com/youtube/player_parameters
+     playerVars: { // https://developers.google.com/youtube/player_parameters
           autoplay: 1,
           controls: 0,
           rel: 0,
           showinfo: 0,
           origin: window.location.href,
-          
         }
       };
       
        
   return (
     <>
+    <Navbar />
     <Container>
         <main className='relative mt-12 calculative '>
             <div>
@@ -47,7 +48,7 @@ export default function StudyAlone() {
 
 const Container = styled.div`
 main{
-    // padding: 20px;
+    padding: 20px;
 }
 .video-background {
     background: #000;
@@ -56,7 +57,7 @@ main{
     bottom: 0;
     right: 0;
     left: 100px;
-    z-index: 100;
+    z-index: 3;
     &::after {
         display: block;
         content: '';
@@ -65,7 +66,7 @@ main{
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1;
+        z-index: 3;
     }
 }
 .video-foreground,

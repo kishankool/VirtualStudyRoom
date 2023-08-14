@@ -78,14 +78,14 @@ const Container = styled.div`
     right: 0;
     bottom:0;
     pointer-events:none;
-    z-index:100;
+    z-index:1;
     .wrapper{
       position: fixed;
       top:0;
       left:0;
       right:0;
       bottom:0;
-      z-index:1000;
+      z-index:2;
       width:232px;
         transform: translate(-100%);
       transition:transform 225ms cubic-bezier(0,0,.2,1) 0ms;

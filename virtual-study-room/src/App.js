@@ -5,7 +5,7 @@ import SetAvatar from "./pages/SetAvatar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import StudyAlone from "./components/StudyAlone";
+import StudyAlone from "./pages/StudyAlone";
 
 export default function App() {
   return (  
