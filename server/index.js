@@ -15,14 +15,14 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("DB Connetion Successfull");
+    console.log("DB Connection Successfull");
   })
   .catch((err) => {
     console.log(err.message);
   });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/messages", messageRoutes);
+// app.use("/api/messages", messageRoutes);s
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)

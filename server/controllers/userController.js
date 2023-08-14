@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 module.exports.login = async (req, res, next) => {
@@ -19,7 +19,7 @@ module.exports.login = async (req, res, next) => {
 
 module.exports.register = async (req, res, next) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password,phone } = req.body;
     const usernameCheck = await User.findOne({ username });
     if (usernameCheck)
       return res.json({ msg: "Username already used", status: false });
@@ -31,6 +31,7 @@ module.exports.register = async (req, res, next) => {
       email,
       username,
       password: hashedPassword,
+      phone,
     });
     delete user.password;
     return res.json({ status: true, user });

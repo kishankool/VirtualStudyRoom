@@ -1,39 +1,126 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
+import { useNavigate, Link } from "react-router-dom";
+// import Logo from "../assets/logo.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { registerRoute } from "../utils/APIRoutes";
 
 
 export default function Register() {
+  const navigate = useNavigate();
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone:"",
+  });
+
+  // useEffect(() => {
+  //   if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+  //     navigate("/");
+  //   }
+  // }, []);
+
+  const handleChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
+
+  const handleValidation = () => {
+    const { password, confirmPassword, username, email } = values;
+    if (password !== confirmPassword) {
+      toast.error(
+        "Password and confirm password should be same.",
+        toastOptions
+      );
+      return false;
+    } else if (username.length < 3) {
+      toast.error(
+        "Username should be greater than 3 characters.",
+        toastOptions
+      );
+      return false;
+    } else if (password.length < 8) {
+      toast.error(
+        "Password should be equal or greater than 8 characters.",
+        toastOptions
+      );
+      return false;
+    } else if (email === "") {
+      toast.error("Email is required.", toastOptions);
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (handleValidation()) {
+      const { email, username, password,phone } = values;
+      const { data } = await axios.post(registerRoute, {
+        username,
+        email,
+        password,
+        phone,
+      });
+
+      if (data.status === false) {
+        toast.error(data.msg, toastOptions);
+      }
+      if (data.status === true) {
+        localStorage.setItem(
+          process.env.REACT_APP_LOCALHOST_KEY,
+          JSON.stringify(data.user)
+        );
+        navigate("/");
+      }
+    }
+  }
   return (
     <>
     <FormContainer>
-    <section class="material-half-bg">
-      <div class="cover"></div>
+    <section className="material-half-bg">
+      <div className="cover"></div>
     </section>
-    <section class="login-content">
-      <div class="logo">
+    <section className="login-content">
+      <div className="logo">
         <h1>Virtual Study Room</h1>
       </div>
-      <div class="login-box">
-        <form class="login-form" action="index.html">
-          <h3 class="login-head"><i class="bi bi-person me-2"></i>SIGN UP</h3>
-          <div class="mb-3">
-            <label class="form-label">USERNAME</label>
-            <input class="form-control" type="text" placeholder="username" autofocus />
+      <div className="login-box">
+        <form className="login-form" action="" onSubmit={(event) => {handleSubmit(event)}}>
+          <h3 className="login-head"><i className="bi bi-person me-2"></i>SIGN UP</h3>
+          <div className="mb-3">
+            <label className="form-label">USERNAME</label>
+            <input className="form-control" type="text" name="username" placeholder="username" onChange={(e) => handleChange(e)} autofocus />
           </div>
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input class="form-control" type="email" placeholder="email" />
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <input className="form-control" name="email" type="email" placeholder="email" onChange={(e) => handleChange(e)} />
           </div>
-          <div class="mb-3">
-            <label class="form-label">PASSWORD</label>
-            <input class="form-control" type="password" placeholder="Password" />
+          <div className="mb-3">
+            <label className="form-label">PASSWORD</label>
+            <input className="form-control" name="password" type="password" placeholder="Password" onChange={(e) => handleChange(e)} />
           </div>
-          <div class="mb-3">
-            <label class="form-label">Phone</label>
-            <input class="form-control" type="text" placeholder="Phone" />
+          <div className="mb-3">
+            <label className="form-label">Confirm Password</label>
+            <input className="form-control" type="password" name="confirmPassword" placeholder="confirmpassword" onChange={(e) => handleChange(e)} />
           </div>
-          <div class="mb-3 btn-container d-grid">
-            <button class="btn btn-primary btn-block"><i class="bi bi-box-arrow-in-right me-2 fs-5"></i>SIGN UP</button>
+          <div className="mb-3">
+            <label className="form-label">Phone</label>
+            <input className="form-control" name="phone" type="text" placeholder="Phone" onChange={(e) => handleChange(e)} />
+          </div>
+          <div className="mb-3 btn-container d-grid">
+            <button type="submit" className="btn btn-primary btn-block"><i className="bi bi-box-arrow-in-right me-2 fs-5"></i>SIGN UP</button>
           </div>
         </form>
       </div>

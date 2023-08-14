@@ -19,6 +19,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     min: 8,
   },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
+    max: 50,
+  },
   isAvatarImageSet: {
     type: Boolean,
     default: false,
