@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SetAvatar from "./pages/SetAvatar";
-// import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import StudyAlone from "./pages/StudyAlone";
+import TodoList from "./pages/TodoList";
 
 export default function App() {
   return (  
@@ -15,7 +15,8 @@ export default function App() {
         <Route path="/login" element={<Login />} /> 
         <Route path="/setAvatar" element={<SetAvatar /> } />
         <Route path="/" element={<Home />} /> 
-        <Route path="/studyalone" element={<StudyAlone />} /> 
+        <Route path="/studyalone" element={<StudyAlone />} />
+        <Route path="/tasks" element={<TodoList />} /> 
       </Routes>
     </BrowserRouter>
   );

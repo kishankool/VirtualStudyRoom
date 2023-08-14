@@ -13,14 +13,14 @@ export default function Navbar() {
     <nav className='navigation-menu'>
       <div className='wrapper'>
         <div className='logo'>
-          <a className='' href=''>
+          <a className='' href='/'>
             <img width='24' height='24' src={reading} />
           </a>
         </div>
         <div className='menu'>
           <ul className='menu-items'>
             <li>
-              <a className='studyrooms navigation-link' href=''>
+              <a className='studyrooms navigation-link' href='/'>
                 <div className='study-room-image'>
                   <img width='24' height='24'  src={video} alt='studyroom' />
                 </div>
@@ -36,7 +36,7 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a className='task-list navigation-link' href=''>
+              <a className='task-list navigation-link' href='tasks'>
                 <div className='task-list menu-item'>
                   <img width='24' height='24' src={list} />
                 </div>
