@@ -33,7 +33,7 @@ export default function WhiteBoardCanvas() {
     lastLine.current = new Konva.Line({
       points: [pos.x, pos.y],
       stroke: eraseMode ? 'white' : 'black',
-      strokeWidth: eraseMode ? 20 : 2, // Increase strokeWidth for erasing effect
+      strokeWidth: eraseMode ? 80 : 2, // Increase strokeWidth for erasing effect
       lineCap: 'round',
       lineJoin: 'round',
     });
@@ -69,7 +69,7 @@ export default function WhiteBoardCanvas() {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
-        <Stage ref={stageRef} width={800} height={600}>
+        <Stage ref={stageRef} width={window.innerWidth} height={600}>
           <Layer ref={layerRef} />
         </Stage>
       </div>

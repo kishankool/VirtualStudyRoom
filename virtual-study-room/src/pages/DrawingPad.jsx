@@ -9,14 +9,18 @@ export default function DrawingPad() {
   return (
     <main>
     <Navbar />
-    <div>
-      <h1>Whiteboard Page</h1>
+    <Container>
+      <h1 className='whiteboard-heading'>Whiteboard Page</h1>
       <WhiteBoardCanvas />
-    </div>
+    </Container>
     </main>
   );
 }
 
 const Container = styled.div`
-
+  display: flex;
+  flex-direction : column;
+  .whiteboard-heading{
+    text-align : center;
+  }
 `;
