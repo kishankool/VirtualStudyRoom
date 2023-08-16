@@ -9,6 +9,8 @@
   "author": "Kishan Mishra",
   "license": "ISC",
   "dependencies": {
+    "konva": "^9.2.0",
+    "react-konva": "^18.2.10",
     "react-youtube": "^10.1.0"
   }
 }

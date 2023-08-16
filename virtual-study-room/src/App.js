@@ -6,7 +6,9 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import StudyAlone from "./pages/StudyAlone";
 import TodoList from "./pages/TodoList";
-import WhiteBoard from "./pages/WhiteBoard";
+import DrawingPad from "./pages/DrawingPad";
+import Whiteboard from "./pages/WhiteBoard";
+
 
 export default function App() {
   return (  
@@ -18,7 +20,7 @@ export default function App() {
         <Route path="/" element={<Home />} /> 
         <Route path="/studyalone" element={<StudyAlone />} />
         <Route path="/tasks" element={<TodoList />} /> 
-        <Route path="/whiteboard" element={<WhiteBoard />} /> 
+        <Route path="/whiteboard" element={<DrawingPad />} /> 
       </Routes>
     </BrowserRouter>
   );
