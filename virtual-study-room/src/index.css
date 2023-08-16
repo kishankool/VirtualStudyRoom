@@ -10,6 +10,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main{
+  padding : 20px;
+  position: relative;
+}
+ @media (min-width : 768px){
+    main{
+      margin : 0 0 0 88px;
+    }  
+ }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

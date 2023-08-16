@@ -44,7 +44,7 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a className='whiteboard navigation-link' href=''>
+              <a className='whiteboard navigation-link' href='/whiteboard'>
                 <div className='white-board-image menu-item'>
                   <img width='24' height='24' src={whiteboard} alt='studyroom' />
                 </div>
@@ -86,8 +86,8 @@ const Container = styled.div`
       right:0;
       bottom:0;
       z-index:2;
-      width:232px;
-        transform: translate(-100%);
+      width: 232px;
+      transform: translate(-100%);
       transition:transform 225ms cubic-bezier(0,0,.2,1) 0ms;
       padding: 0;
       display: flex;
