@@ -11,12 +11,15 @@ export default function WhiteBoard() {
     const lastLine = useRef(null);
     const [isWhiteboardHovered, setIsWhiteboardHovered] = useState(false);
 
+    const height = 600;
     useEffect(() => {
       const stage = new Konva.Stage({
         container: 'whiteboard-container',
         width: window.innerWidth,
-        height: window.innerHeight,
+        height: height
       });
+
+
       const layer = new Konva.Layer();
       stage.add(layer);
       stageRef.current = stage;
@@ -33,6 +36,8 @@ export default function WhiteBoard() {
         const cont = document.getElementsByClassName('konvajs-content');
         cont[0].style.cursor = "default";
       };
+
+      
 
       stage.on('mouseenter', handleMouseEnter);
       stage.on('mouseleave', handleMouseLeave);
@@ -64,9 +69,7 @@ export default function WhiteBoard() {
         drawing.current = false;
       });
 
-     
-
-      
+    
 
     },[]);
       
@@ -97,12 +100,13 @@ export default function WhiteBoard() {
 }
 
 const Container = styled.div`
-.konvajs-content {
-    cursor: auto ;
-    left:90px;
-  }
- .konvajs-content:hover {
-    cursor: url(${Pencil}), auto ;
-  }
+
+.whiteboard {
+  border: 2px solid #333; /* Example border style and color */
+  padding: 10px; /* Add padding for spacing */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
   
 `;

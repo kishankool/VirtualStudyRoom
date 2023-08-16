@@ -67,11 +67,10 @@ const Container = styled.div`
     align-items: center;
     text-decoration: none;
     font-weight : 400;
-    color : #27110f;
+    // color : #27110f;
     text-transform : capitalize;
   }
   .navigation-menu{
-    background-color : #282322;
     position: fixed;
     top: 0;
     left: 0;
@@ -87,6 +86,7 @@ const Container = styled.div`
       bottom:0;
       z-index:2;
       width: 232px;
+      background-color : #282322;
       transform: translate(-100%);
       transition:transform 225ms cubic-bezier(0,0,.2,1) 0ms;
       padding: 0;
@@ -101,6 +101,7 @@ const Container = styled.div`
       }
       .menu{
         .menu-items{
+          font-size : 12px;
           color: #000;
           padding: 1rem 0;
           display: flex;
@@ -109,6 +110,9 @@ const Container = styled.div`
           margin: 0;
           li{
             margin-bottom : 2px;
+            :hover{
+              background-color: #0c0403;
+            }
             .navigation-link{
               padding: 0.75rem 2rem;
               display: flex;
@@ -118,6 +122,8 @@ const Container = styled.div`
               color: #fff;
               text-transform : capitalize;
               .menu-item{
+                display : flex;
+                justify-content : center;
                 width: 1.5rem;
                 height: 1.5rem;
                 margin-right: 0.75rem;
@@ -149,7 +155,7 @@ const Container = styled.div`
           justify-content : center;
           border-radius : 8px;
           .menu-item{
-            margin-right : 0;
+            margin-right : 0 !important;
             flex : 0 0 100%;
           }
         }
