@@ -56,7 +56,7 @@ main{
     top: 0;
     bottom: 0;
     right: 0;
-    left: 100px;
+    left: 0;
     z-index: 3;
     &::after {
         display: block;
